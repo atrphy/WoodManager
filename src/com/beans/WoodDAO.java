@@ -26,7 +26,7 @@ public class WoodDAO {
 		String driverName = "com.mysql.jdbc.Driver";
 		String url = "jdbc:mysql:///wooddb";
 		String userName = "root";
-		String password = "201430320231sjk";
+		String password = "root";
 		Class.forName(driverName);
 		Connection con = DriverManager.getConnection(url, userName, password);
 		return con;
