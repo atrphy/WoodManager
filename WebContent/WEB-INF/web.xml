@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
+  
+  <servlet>
+    <servlet-name>executeInsUpdAndDel</servlet-name>
+    <servlet-class>com.control.Insert_Update_DeleteServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>executeSearchAndList</servlet-name>
+    <servlet-class>com.control.Search_ListAllServlet</servlet-class>
+  </servlet>
+  
+  
+  
+  
+  <servlet-mapping>
+    <servlet-name>executeInsUpdAndDel</servlet-name>
+    <url-pattern>/executeInsUpdAndDel.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>executeSearchAndList</servlet-name>
+    <url-pattern>/executeSearchAndList.do</url-pattern>
+  </servlet-mapping>
+  
+ </web-app>

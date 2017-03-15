@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>WOOD</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+	<!-- service js -->
+	<script src="../js/core/jquery-1.9.1.min.js"></script>
+	<script src="../js/core/jimFrame.js"></script>
+	<script src="../js/tools/tool.js"></script>
+	<script src="index.js"></script>  <!-- service js -->
+	
+	<!-- Jquery-EasyUI -->
+	<link rel="stylesheet" type="text/css" href="../css/skin.css">
+	
+	<link rel="stylesheet" type="text/css" href="../jquery-easyui-1.5.1/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../jquery-easyui-1.5.1/themes/icon.css">
+	<link rel="icon" href="../static/images/logo.png" type="image/x-icon"/>
+	<script type="text/javascript" src="../jquery-easyui-1.5.1/jquery.easyui.min.js"></script>
+
+
+
+
+</head>
+<body id="main" class="easyui-layout" onload = "disptime()" >
+	<!-- 面板上面 -->
+	<div region="north" split="true" border="false" style="overflow: hidden; height: 40px;
+        background: url(../static/images/layout-browser-hd-bg.gif) #7f99be repeat-x center 50%;
+        line-height: 20px;color: #fff; font-family: Verdana, 微软雅黑,黑体"> 
+        <span style="padding-left:600px; font-size: 20px; text-align:center; ">
+        <img src="../static/images/ntitle.png" width="20" height="20" align="center" />木材管理系统
+        </span> 
+    </div>
+    <!-- 面板下面 -->
+    <div region="south" split="true" style="height: 50px; background: #D2E0F2; ">
+    <marquee  id = "footF" direction="left"></marquee>
+      <div class="footer" id = "time">
+      
+        
+      </div>
+    </div>
+
+
+
+	<!-- 面板左边 -->
+	<div region="west" hide="true" split="true" title="导航菜单"
+		style="width: 180px;" id="west">
+		<div id="nav" class="easyui-accordion" fit="true" border="false">
+			
+		</div>
+	</div>
+	
+
+
+	<!-- 面板右边 -->
+	<!--
+	<div region="east"  split="true" onexpand="close('west')" style="width:180px;overflow:hidden;"  >
+    <div class="easyui-calendar"></div>
+    </div>
+    --> 
+    <!-- 面板中部 -->
+	<div id="mainPanle" data-options="region:'center'"  style="overflow-y: hidden;">
+	<div id="tabs" class="easyui-tabs" fit="true" border="false">
+	 
+	 <div title="主页" style="padding:20px;overflow:hidden; color:red; " >
+	<table id="dg" title="All Woods" class="easyui-datagrid" style="width:100%;height:100%"
+			
+			toolbar="#toolbar" 
+			rownumbers="true" fitColumns="true" singleSelect="true">
+		<thead  id="he">
+			<tr>
+				<th field="wood_no" width="50"><b>序号</b></th>
+				<th field="wood_name" width="50"><b>木材名称</b></th>
+				<th field="wood_latin" width="50"><b>英文名称</b></th>
+				<th field="wood_origin" width="50"><b>产地</b></th>
+				<th field="wood_common_name" width="50"><b>俗名</b></th>
+				
+				
+			</tr>
+		</thead>
+	</table>
+	
+	
+	</div>
+	</div>
+	<!-- 中部面板工具栏 -->
+	<div id="toolbar" style = "font-family: Verdana, 微软雅黑,黑体">
+
+		<a href="#" title="添加" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newWood()"  >添加</a>
+		<a href="#" title="编辑" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editWood()">编辑</a>
+		<a href="#" title="删除" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="removeWood()">删除</a>
+		<a href="#" title="详情" class="easyui-linkbutton" iconCls="icon-detail" plain="true" onclick="detailWood()">详情</a>
+	
+	
+		<input class="easyui-searchbox" data-options="prompt:'回车模糊检索',menu:'#mm',searcher:searchWood" style="width:300px">
+	
+	<div id="mm">
+		<div data-options="name:'wood_name',iconCls:'icon-ok'">按中文名称检索</div>
+		<div data-options="name:'wood_latin'">按英文名称检索</div>
+		<div data-options="name:'wood_no'">按序号检索</div>
+		<div data-options="name:'wood_origin'">按产地检索</div>
+		<div data-options="name:'wood_common_name'">按俗名检索</div>
+	</div>
+   <a href="#" class="easyui-linkbutton" iconCls="icon-search" plain="true" onclick="addEastPanel()" style="float:right;">条件查找</a>
+	</div>
+	</div>
+	<div id="dlg" class="easyui-dialog" style="width:400px;height:280px;padding:10px 20px"
+			closed="true" buttons="#dlg-buttons">
+		<div class="ftitle">Wood Information</div>
+		<form id="fm" method="post" novalidate>
+			
+			<div class="fitem">
+				<label>中文名称:</label>
+				<input name="wood_name" class="easyui-validatebox" required="true">
+			</div>
+			<div class="fitem">
+				<label>英文名称:</label>
+				<input name="wood_latin">
+			</div>
+			<div class="fitem">
+				<label>产地:</label>
+				<input name="wood_origin">
+			</div>
+			<div class="fitem">
+				<label>气干密度:</label>
+				<input name="wood_air_dry_density" >
+			</div>
+			<div class="fitem">
+				<label>俗名:</label>
+				<input name="wood_common_name">
+			</div>
+		</form>
+	</div>
+	<div id="dlg-buttons">
+		<a href="#" class="easyui-linkbutton" iconCls="icon-ok" onclick="saveWood()">保存</a>
+		<a href="#" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')">取消</a>
+	</div>
+	
+
+	
+</body>
+</html>

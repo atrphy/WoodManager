@@ -1,0 +1,96 @@
+@CHARSET "UTF-8";
+
+.footer {
+	text-align: center;
+	color: #15428B;
+	margin: 0px;
+	padding: 0px;
+	line-height: 23px;
+	font-weight: bold;
+}
+
+.head a {
+	color: White;
+	text-decoration: underline;
+}
+
+@CHARSET "UTF-8";
+
+#fm {
+	margin: 0;
+	padding: 10px 30px;
+}
+
+.ftitle {
+	font-size: 14px;
+	font-weight: bold;
+	color: #666;
+	padding: 5px 0;
+	margin-bottom: 10px;
+	border-bottom: 1px solid #ccc;
+}
+
+.fitem {
+	margin-bottom: 5px;
+}
+
+.fitem label {
+	display: inline-block;
+	width: 80px;
+}
+
+.yy {
+	font-size: 14px;
+	font-weight: bold;
+	color: blue;
+}
+
+@CHARSET "UTF-8";
+
+#fm {
+	margin: 0;
+	padding: 10px 30px;
+}
+
+.ftitle {
+	font-size: 14px;
+	font-weight: bold;
+	color: #666;
+	padding: 5px 0;
+	margin-bottom: 10px;
+	border-bottom: 1px solid #ccc;
+}
+
+.fitem {
+	margin-bottom: 5px;
+}
+
+.fitem label {
+	display: inline-block;
+	width: 80px;
+}
+
+.lmenu:hover {
+	border: 1px #0000FF solid;
+	color: #333333;
+	clip: height;
+	background-color: #C8D8F0;
+	height: 20px;
+	padding-top: 3px;
+	padding-right: 50px;
+	padding-bottom: 3px;
+	padding-left: 15px;
+	width: 50px: 50px
+}
+.lmenu:visited {
+	font-size: 12px;
+	line-height: 25px;
+	color: #333333;
+	text-decoration: none;
+}
+.lmenu:link {
+	font-size: 12px;
+	line-height: 25px;
+	color: #333333;
+	text-decoration: none;
+}
